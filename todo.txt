@@ -1,0 +1,8 @@
+todo
+
+* tasarım oluşturulacak
+* kullanıcı işlemleri (sentry)
+* soru kaydedilmesi
+* tagleme
+* cevaplama
+* arama
