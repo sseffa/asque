@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentTable extends Migration {
+class CreatePostTagsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,7 +11,11 @@ class CreateCommentTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('post_tags', function ($table) {
+
+			$table->integer('post_id');
+			$table->integer('tag_id');
+		});
 	}
 
 	/**
@@ -21,7 +25,7 @@ class CreateCommentTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('post_tags');
 	}
 
 }

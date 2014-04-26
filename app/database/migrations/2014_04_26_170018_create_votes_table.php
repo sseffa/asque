@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionTable extends Migration {
+class CreateVotesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,7 +11,11 @@ class CreateQuestionTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('votes', function ($table) {
+			$table->increments('id');
+			$table->integer('post_id');
+			$table->integer('user_id');
+		});
 	}
 
 	/**
@@ -21,7 +25,7 @@ class CreateQuestionTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('votes');
 	}
 
 }
