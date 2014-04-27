@@ -25,6 +25,15 @@ class CreateUsersTable extends Migration {
 			$table->string('reset_password_code')->nullable();
 			$table->string('first_name')->nullable();
 			$table->string('last_name')->nullable();
+
+			$table->string('reputation');
+			$table->string('username');
+			$table->string('web_site_url');
+			$table->text('biography');
+			$table->integer('view_count');
+			$table->integer('age');
+
+
 			$table->timestamps();
 
 			// We'll need to ensure that MySQL uses the InnoDB engine to

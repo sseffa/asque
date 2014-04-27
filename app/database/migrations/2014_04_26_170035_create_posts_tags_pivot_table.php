@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTagsTable extends Migration {
+class CreatePostsTagsPivotTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,7 +11,7 @@ class CreatePostTagsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('post_tags', function ($table) {
+		Schema::create('posts_tags', function ($table) {
 
 			$table->integer('post_id');
 			$table->integer('tag_id');
@@ -25,7 +25,7 @@ class CreatePostTagsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('post_tags');
+		Schema::drop('posts_tags');
 	}
 
 }

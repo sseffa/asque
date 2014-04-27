@@ -17,9 +17,10 @@ class CreatePostsTable extends Migration {
   			$table->string('title', 255);
   			$table->text('body');
 			$table->integer('view_count');
-			$table->integer('commment_count');
+			$table->integer('comment_count');
 			$table->integer('favorite_count');
 			$table->integer('user_id');
+			$table->integer('parent_id');
 			$table->datetime('closed_at');
 			$table->timestamps();
 		});
