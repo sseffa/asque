@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Asque</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ HTML::style('themes/Darkly/bootstrap.css') }}
-  </head>
-  <body>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -48,7 +39,3 @@
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    {{ HTML::script('assets/js/bootstrap.min.js') }}
-  </body>
-</html>
