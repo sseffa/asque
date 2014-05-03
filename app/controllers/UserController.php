@@ -92,7 +92,6 @@ class UserController extends \BaseController {
      */
     public function update() {
 
-
         $formData = array(
             'username'     => Input::get('username'),
             'email'        => Input::get('email'),
@@ -150,7 +149,8 @@ class UserController extends \BaseController {
 
     public function profile() {
 
-        $user = Sentry::getUser();
+        $userId = Sentry::getUser()->id;
+        $user = User::find($userId);
 
         return View::make('user.profile')->with('user', $user);
     }

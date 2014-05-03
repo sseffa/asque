@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <td><strong>Yaş</strong></td>
-                    <td>{{ 21 }}</td>
+                    <td>{{ $user->age }}</td>
                 </tr>
                 <tr>
                     <td><strong>Bulunduğunuz Yer</strong></td>
