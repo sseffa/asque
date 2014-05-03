@@ -2,78 +2,50 @@
 
 class AuthController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
+    /**
+     * Display the login page
+     * @return View
+     */
+    public function getLogin() {
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+        // oturum açılmışsa buraya girmeyecek unutma!
+        return View::make('auth.login');
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+    /**
+     * Login action
+     * @return Redirect
+     */
+    public function postLogin() {
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        $credentials = array(
+            'email'    => Input::get('email'),
+            'password' => Input::get('password')
+        );
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+        $rememberMe = Input::get('rememberMe');
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+        try {
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+            if (!empty($rememberMe)) {
+                $user = Sentry::authenticate($credentials, true);
+            } else {
+                $user = Sentry::authenticate($credentials, false);
+            }
 
+            if ($user) {
+                return Redirect::route('dashboard');
+            }
+        } catch (\Exception $e) {
+            return Redirect::route('user.login')->withErrors(array('login' => $e->getMessage()));
+        }
+    }
+
+    public function getLogout() {
+
+        Sentry::logout();
+
+        Notification::success('Çıkış işlemi başarıyla tamamlandı');
+        return Redirect::route('user.login');
+    }
 }

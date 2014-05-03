@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div style="margin-bottom: 50px;" class="col-md-3">
     <div class="sidebar-module sidebar-module-inset">
         <h4>En Yeni Sorular</h4>
         <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>

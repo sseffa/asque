@@ -23,15 +23,15 @@ class CreateUsersTable extends Migration {
 			$table->timestamp('last_login')->nullable();
 			$table->string('persist_code')->nullable();
 			$table->string('reset_password_code')->nullable();
-			$table->string('first_name')->nullable();
-			$table->string('last_name')->nullable();
+			$table->string('name')->nullable();
 
+			$table->string('location');
 			$table->string('reputation');
 			$table->string('username');
 			$table->string('web_site_url');
 			$table->text('biography');
 			$table->integer('view_count');
-			$table->integer('age');
+			$table->datetime('birthday');
 
 
 			$table->timestamps();

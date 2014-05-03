@@ -6,3 +6,4 @@ todo
 * tagleme
 * cevaplama
 * arama
+* kullanıcı kayıt olduğunda aktivasyon maili gönderilecek

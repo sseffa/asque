@@ -1,0 +1,111 @@
+<!-- CSS START -->
+
+<!-- CSS END -->
+
+<!-- Footer CSS START -->
+.bottom-menu {
+    background: none repeat scroll 0 0 #EBEDEF;
+    color: #B8BFC7;
+    padding: 40px 0;
+}
+
+.bottom-menu .brand {
+    font-size: 23.996px;
+    margin-bottom: -6px;
+    margin-top: -8px;
+}
+
+.bottom-menu .title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.bottom-menu a {
+    color: inherit;
+}
+
+.active .bottom-menu a, .bottom-menu a:hover, .bottom-menu a:focus {
+    color: #1ABC9C;
+}
+
+.bottom-menu .label, .bottom-menu .badge {
+    vertical-align: middle;
+}
+
+.bottom-icons {
+    font-size: 15.988px;
+}
+
+.bottom-menu-inverse {
+    background-color: #34495E;
+    color: #677786;
+}
+
+.bottom-menu-large {
+    padding-bottom: 52px;
+    padding-top: 52px;
+}
+
+.bottom-menu-large .brand {
+    margin-top: -2px;
+}
+
+.bottom-menu-large .bottom-links li {
+    float: none;
+    margin-right: 0;
+}
+
+.bottom-links, .bottom-icons {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-links li, .bottom-icons li {
+    display: block;
+    float: left;
+    margin: 0 18px 0 0;
+}
+
+@media (max-width: 767px) {
+    .bottom-menu {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .bottom-menu .brand, .bottom-menu .bottom-links {
+        margin-bottom: 30px;
+    }
+
+    .bottom-menu .bottom-links li {
+        float: none;
+        margin-bottom: 2px;
+    }
+
+    .bottom-menu [class*="span"]:last-child .bottom-links {
+        margin-bottom: 0;
+    }
+}
+
+.bottom-mail {
+    height: 50px !important;
+}
+
+.bottom-mail-heading {
+    color: #FFFFFF !important;
+    font-weight: inherit;
+    margin-bottom: 30px;
+}
+
+.bottom-links li {
+    margin-right: 30px !important;
+}
+
+#search_icon {
+    cursor: pointer;
+    margin-top: 5px;
+}
+<!-- Footer CSS END -->
