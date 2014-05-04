@@ -7,8 +7,9 @@ class UserController extends \BaseController {
      *
      * @return Response
      */
-    public function index() {
-        //
+    public function all() {
+
+        dd(User::all()->toArray());
     }
 
     /**

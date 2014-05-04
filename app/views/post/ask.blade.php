@@ -45,7 +45,7 @@
 
         <!-- Title -->
         <div class="control-group {{ $errors->has('title') ? 'has-error' : '' }}">
-            <label class="control-label" for="first-name">Başlık</label>
+            <label class="control-label" for="title">Başlık</label>
 
             <div class="controls">
                 {{ Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Başlık', 'value'=>Input::old('title'))) }}
@@ -58,7 +58,7 @@
 
         <!-- Soru -->
         <div class="control-group {{ $errors->has('body') ? 'has-error' : '' }}">
-            <label class="control-label" for="email">Soru</label>
+            <label class="control-label" for="body">Soru</label>
 
             <div class="controls">
                 {{ Form::textarea('body', null, array('class'=>'summernote', 'id' => 'body', 'placeholder'=>'Soru', 'value'=>Input::old('body'))) }}
@@ -71,7 +71,7 @@
 
         <!-- Tag -->
         <div class="control-group {{ $errors->has('tag') ? 'has-error' : '' }}">
-            <label class="control-label" for="title">Etiket</label>
+            <label class="control-label" for="tag">Etiket</label>
 
             <div class="controls">
                 {{ Form::text('tag', null, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>Input::old('tag'))) }}

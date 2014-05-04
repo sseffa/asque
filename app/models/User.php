@@ -6,6 +6,16 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User {
 
     protected $appends = ['age'];
 
+    public function posts()
+    {
+        return $this->belongsTo('Posts');
+    }
+
+    public function comments()
+    {
+        return $this->belongsTo('Comments');
+    }
+
     public function setAgeAttribute($value) {
 
         $this->attributes['age'] = $value;

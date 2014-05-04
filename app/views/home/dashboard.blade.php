@@ -1,8 +1,23 @@
 @extends('layout/layout')
 @section('content')
+{{ HTML::script('momentjs/min/moment-with-langs.min.js') }}
 <script type="text/javascript">
     $(document).ready(function () {
         $('#notification').show().delay(4000).fadeOut(700);
+    });
+
+    moment().format();
+    moment.lang('tr');
+
+    jQuery(document).ready(function ($) {
+        var now = moment();
+        $('.time').each(function (i, e) {
+
+            var time = moment($(e).attr('datetime'));
+            $(e).text(time.from(now));
+
+        });
+
     });
 </script>
 <div class="container">
@@ -10,414 +25,53 @@
 @include('layout/top')
 <div class="row">
 <div class="col-md-9">
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">C#</button>
-        <button class="btn btn-default btn-xs" type="button">Linq</button>
-        <button class="btn btn-default btn-xs" type="button">Entity Framework</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">Java</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
 
 <div class="clearfix"></div>
+@foreach($posts as $post)
 <div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
     <a href="#" class="noa" target="_blank">
-        01
+        {{ $post->day }}
         <div class="clearfix"></div>
-        May
+        {{ $post->month }}
         <div class="clearfix"></div>
-        2014 </a>
-
+        {{ $post->year }}
+    </a>
 </div>
 <blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
     <div class="col-md-12 post_header">
         <div class="pull-left post_title">
             <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               {{ $post->title }}
             </a>
         </div>
     </div>
     <hr>
     <div class="clearfix"></div>
     <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">ASP.NET</button>
-        <button class="btn btn-default btn-xs" type="button">MVC</button>
+        @foreach($post->tags as $tag)
+        <button class="btn btn-default btn-xs" type="button">{{ $tag->name }}</button>
+        @endforeach
     </div>
     <hr>
     <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
+        <p><b>{{ 12 }}</b> Votes</p>
     </div>
     <div class="col-xs-3">
         <p><b>1</b> Answer</p>
     </div>
     <div class="col-xs-3">
-        <p><b>152</b> View</p>
+        <p><b>{{ $post->view_count }}</b> View</p>
     </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
+    <div class="pull-right "><i style="color: #c0392b !important;"></i>
 
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
+        <p><span class="time" datetime="{{ $post->created_at }}"></span> | <a class="noa" target="_blank" href="#"> {{ $post->user->username }}</a></p>
     </div>
 </blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">Jquey</button>
-        <button class="btn btn-default btn-xs" type="button">Ajax</button>
-        <button class="btn btn-default btn-xs" type="button">PHP</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">Javascript</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">HTML5</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">Oracle</button>
-        <button class="btn btn-default btn-xs" type="button">Java</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">Java</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">C#</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
-
-<div class="clearfix"></div>
-<div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-    <a href="#" class="noa" target="_blank">
-        01
-        <div class="clearfix"></div>
-        May
-        <div class="clearfix"></div>
-        2014 </a>
-
-</div>
-<blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-    <div class="col-md-12 post_header">
-        <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="col-xs-12">
-        <button class="btn btn-default btn-xs" type="button">PHP</button>
-        <button class="btn btn-default btn-xs" type="button">Mysql</button>
-    </div>
-    <hr>
-    <div class="col-xs-3">
-        <p><b>15</b> Votes</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>1</b> Answer</p>
-    </div>
-    <div class="col-xs-3">
-        <p><b>152</b> View</p>
-    </div>
-    <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-
-        <p>5 minutes ago | <a class="noa" target="_blank" href="#">sseffa</a></p>
-    </div>
-</blockquote>
+@endforeach
 
 <div class="col-md-9 col-md-push-3">
     <ul class="pagination">
-        <li class="disabled"><span>«</span></li>
-        <li class="active"><span>1</span></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li class="disabled"><span>...</span></li>
-        <li><a href="#">42</a></li>
-        <li><a href="#">43</a></li>
-        <li><a href="#">»</a></li>
+        {{ $posts->links() }}
     </ul>
 </div>
 </div>

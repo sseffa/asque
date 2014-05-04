@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration {
 			$table->integer('post_type_id');
   			$table->string('title', 255);
   			$table->text('body');
+            $table->string('slug');
 			$table->integer('view_count');
 			$table->integer('comment_count');
 			$table->integer('favorite_count');

@@ -7,11 +7,10 @@ class TagController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
-	}
+    public function all() {
 
+        dd(Tag::all()->toArray());
+    }
 
 	/**
 	 * Show the form for creating a new resource.

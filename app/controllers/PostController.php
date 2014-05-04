@@ -2,6 +2,11 @@
 
 class PostController extends \BaseController {
 
+    public function all() {
+
+        dd(Post::all()->toArray());
+    }
+
     public function getAsk() {
 
         return View::make("post.ask");
@@ -57,5 +62,11 @@ class PostController extends \BaseController {
         Notification::success('Sorunuz başarıyla kaydedildi');
 
         return Redirect::action('HomeController@index');
+    }
+
+    public function show($id, $slug = null) {
+
+        $post = Post::find($id);
+        return View::make('post.show', compact('post'));
     }
 }

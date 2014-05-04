@@ -25,7 +25,42 @@ class TagsTableSeeder extends Seeder {
             array(
                 'name'  => 'Java',
                 'slug'  => 'java',
-                'count' => 598
+                'count' => 123
+            ),
+            array(
+                'name'  => 'Mysql',
+                'slug'  => 'mysql',
+                'count' => 213
+            ),
+            array(
+                'name'  => 'Mssql',
+                'slug'  => 'mssql',
+                'count' => 435
+            ),
+            array(
+                'name'  => 'Javascript',
+                'slug'  => 'javascript',
+                'count' => 123
+            ),
+            array(
+                'name'  => 'JQuery',
+                'slug'  => 'jquery',
+                'count' => 56
+            ),
+            array(
+                'name'  => 'Mootools',
+                'slug'  => 'mootools',
+                'count' => 45
+            ),
+            array(
+                'name'  => 'Oracle',
+                'slug'  => 'oracle',
+                'count' => 324
+            ),
+            array(
+                'name'  => 'Laravel',
+                'slug'  => 'laravel',
+                'count' => 124
             )
         ));
     }
