@@ -7,3 +7,13 @@ todo
 * cevaplama
 * arama
 * kullanıcı kayıt olduğunda aktivasyon maili gönderilecek
+* arşivden seçilen aya göre listeleme
+* soruya cevap ekleme
+* soruya yorum ekleme
+* üye profil sayfa linki
+* auth kontrolü
+* cevap onaylama
+* soru oylama
+* mail listesi oluşturma
+* detaylı tag sayfası
+* kullanıcı tema ayarları yapılacak

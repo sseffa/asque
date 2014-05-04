@@ -9,7 +9,8 @@ class UserController extends \BaseController {
      */
     public function all() {
 
-        dd(User::all()->toArray());
+        $users = User::paginate(20);
+        return View::make('user.all', compact('users'));
     }
 
     /**

@@ -34,7 +34,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-04-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -46,8 +46,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2014-04-15 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -60,7 +60,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-03-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -73,7 +73,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-03-21 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -85,8 +85,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2014-03-30 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -99,7 +99,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-02-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -112,7 +112,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-02-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -124,8 +124,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2014-04-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -138,7 +138,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-02-21 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -151,7 +151,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-02-25 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -163,8 +163,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2014-01-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -177,7 +177,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-01-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -190,7 +190,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2014-01-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -202,8 +202,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2013-12-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -216,7 +216,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-12-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -229,7 +229,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-11-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -241,8 +241,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2013-11-21 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -255,7 +255,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-10-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -268,7 +268,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-09-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -280,8 +280,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2013-08-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -294,7 +294,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-06-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -306,8 +306,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2013-04-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -320,7 +320,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-01-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -333,7 +333,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2013-01-21 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -345,8 +345,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2012-12-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -359,7 +359,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2012-12-12 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -372,7 +372,7 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2012-11-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -384,8 +384,8 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 2,
-                'parent_id'      => 1,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'parent_id'      => 0,
+                'created_at'     => date('2011-11-11 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -398,7 +398,47 @@ class PostsTableSeeder extends Seeder {
                 'favorite_count' => 15,
                 'user_id'        => 1,
                 'parent_id'      => 0,
-                'created_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => date('2012-02-01 16:00:00'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'closed_at'      => date('Y-m-d H:i:s')
+            ),
+            // sub post
+            array(
+                'post_type_id'   => 1,
+                'title'          => 'Nulla pharetra dui quis rhoncus fringilla.',
+                'body'           => 'Aenean nunc neque, ultrices at pharetra eget, suscipit vitae velit. Cras nec quam sollicitudin nibh tempus tincidunt. Ut magna ipsum, suscipit nec consectetur quis, varius eu lectus.',
+                'view_count'     => 54,
+                'comment_count'  => 1,
+                'favorite_count' => 15,
+                'user_id'        => 1,
+                'parent_id'      => 1,
+                'created_at'     => date('2011-04-01 16:00:00'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'closed_at'      => date('Y-m-d H:i:s')
+            ),
+            array(
+                'post_type_id'   => 2,
+                'title'          => 'Aliquam erat volutpat.',
+                'body'           => 'Aenean nunc neque, ultrices at pharetra eget, suscipit vitae velit. Cras nec quam sollicitudin nibh tempus tincidunt. Ut magna ipsum, suscipit nec consectetur quis, varius eu lectus.',
+                'view_count'     => 54,
+                'comment_count'  => 1,
+                'favorite_count' => 15,
+                'user_id'        => 2,
+                'parent_id'      => 1,
+                'created_at'     => date('2012-04-01 16:00:00'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'closed_at'      => date('Y-m-d H:i:s')
+            ),
+            array(
+                'post_type_id'   => 1,
+                'title'          => 'Duis nec turpis massa.',
+                'body'           => 'Aenean nunc neque, ultrices at pharetra eget, suscipit vitae velit. Cras nec quam sollicitudin nibh tempus tincidunt. Ut magna ipsum, suscipit nec consectetur quis, varius eu lectus.',
+                'view_count'     => 54,
+                'comment_count'  => 1,
+                'favorite_count' => 15,
+                'user_id'        => 1,
+                'parent_id'      => 2,
+                'created_at'     => date('2010-04-01 16:00:00'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')
             ),
@@ -410,7 +450,20 @@ class PostsTableSeeder extends Seeder {
                 'comment_count'  => 1,
                 'favorite_count' => 15,
                 'user_id'        => 1,
-                'parent_id'      => 0,
+                'parent_id'      => 3,
+                'created_at'     => date('2011-12-01 16:00:00'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'closed_at'      => date('Y-m-d H:i:s')
+            ),
+            array(
+                'post_type_id'   => 2,
+                'title'          => 'Curabitur sed vulputate eros.',
+                'body'           => 'Aenean nunc neque, ultrices at pharetra eget, suscipit vitae velit. Cras nec quam sollicitudin nibh tempus tincidunt. Ut magna ipsum, suscipit nec consectetur quis, varius eu lectus.',
+                'view_count'     => 54,
+                'comment_count'  => 1,
+                'favorite_count' => 15,
+                'user_id'        => 2,
+                'parent_id'      => 4,
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s'),
                 'closed_at'      => date('Y-m-d H:i:s')

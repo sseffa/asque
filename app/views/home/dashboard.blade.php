@@ -17,7 +17,6 @@
             $(e).text(time.from(now));
 
         });
-
     });
 </script>
 <div class="container">
@@ -40,7 +39,7 @@
 <blockquote style="border-color:#c0392b !important;" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
     <div class="col-md-12 post_header">
         <div class="pull-left post_title">
-            <a target="_blank" class="noa" href="#">
+            <a class="noa" href="{{ URL::route('post.show', array('id'=>$post->id, 'slug'=>$post->slug)) }}">
                {{ $post->title }}
             </a>
         </div>
@@ -49,7 +48,7 @@
     <div class="clearfix"></div>
     <div class="col-xs-12">
         @foreach($post->tags as $tag)
-        <button class="btn btn-default btn-xs" type="button">{{ $tag->name }}</button>
+        <a class="btn btn-default btn-xs" href="{{ URL::route('tag.show', array('slug'=>$tag->slug)) }}">{{ $tag->name }}</a>
         @endforeach
     </div>
     <hr>
@@ -63,7 +62,6 @@
         <p><b>{{ $post->view_count }}</b> View</p>
     </div>
     <div class="pull-right "><i style="color: #c0392b !important;"></i>
-
         <p><span class="time" datetime="{{ $post->created_at }}"></span> | <a class="noa" target="_blank" href="#"> {{ $post->user->username }}</a></p>
     </div>
 </blockquote>

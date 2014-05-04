@@ -66,7 +66,28 @@ class PostController extends \BaseController {
 
     public function show($id, $slug = null) {
 
-        $post = Post::find($id);
+        //$post = Post::with('tags', 'user', 'comments', 'children')->find(1)->toArray();
+
+        /*
+        $post = Post::with(array('tags', 'user', 'comments', 'children' => function ($query) {
+            $query->with('comments');
+        }))->find(1)->toArray();
+        */
+
+        /*
+        $post = Post::with(array('tags', 'user', 'comments', 'children' => function ($query) {
+
+            $query->with(array('comments' => function ($subQuery) {
+
+                $subQuery->with('user');
+            }));
+        }))->find($id);
+        */
+
+        $post = Post::with(array(
+            'tags', 'user', 'comments', 'children.comments.user'
+        ))->find($id);
+
         return View::make('post.show', compact('post'));
     }
 }

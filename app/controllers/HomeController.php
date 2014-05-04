@@ -18,7 +18,6 @@ class HomeController extends BaseController {
     public function index() {
 
         $posts = Post::with('tags', 'user')->paginate(10);
-
         return View::make('home.dashboard', compact('posts'));
     }
 }

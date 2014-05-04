@@ -1,6 +1,6 @@
 <?php
 
-class Comments extends Eloquent {
+class Comment extends Eloquent {
 
     protected $table = 'comments';
 
@@ -11,6 +11,6 @@ class Comments extends Eloquent {
 
     public function questions() {
 
-        return $this->belongsTo('Questions', 'post_id');
+        return $this->belongsTo('Post', 'post_id');
     }
 }

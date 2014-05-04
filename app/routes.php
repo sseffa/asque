@@ -17,6 +17,7 @@ Route::get('/user/edit', array('as' => 'user.edit', 'uses' => 'UserController@ed
 Route::post('/user/update', array('as' => 'user.update', 'uses' => 'UserController@update'));
 Route::get('/users', array('as' => 'user.all', 'uses' => 'UserController@all'));
 
+
 // auth
 Route::get('/login', array('as' => 'user.login', 'uses' => 'AuthController@getLogin'));
 Route::post('/login', array('as' => 'user.login.post', 'uses' => 'AuthController@postLogin'));
@@ -30,3 +31,4 @@ Route::get('/questions/{id}/{slug?}', array('as' => 'post.show', 'uses' => 'Post
 
 // tag
 Route::get('/tags', array('as' => 'tag.all', 'uses' => 'TagController@all'));
+Route::get('/tagged/{slug}', array('as' => 'tag.show', 'uses' => 'TagController@show'));

@@ -19,10 +19,10 @@
         ],
         "files": [
             "app/helpers.php"
-        ]
-    },
-    "psr-0": {
-        "Asque": "app/"
+        ],
+        "psr-0": {
+            "Asque": "app/"
+        }
     },
     "scripts": {
         "post-install-cmd": [

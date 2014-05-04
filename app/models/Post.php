@@ -17,7 +17,17 @@ class Post extends Eloquent {
 
     public function comments() {
 
-        return $this->hasMany('Comments', 'post_id');
+        return $this->hasMany('Comment', 'post_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo('Post', 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany('Post', 'parent_id');
     }
 
     public function setUrlAttribute($value) {
