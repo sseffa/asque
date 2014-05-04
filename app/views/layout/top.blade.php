@@ -6,8 +6,8 @@
             <button class="btn btn-info btn-xs" type="button">Üyeler</button>
         </div>
 
-        <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
-            <button class="btn btn-danger btn-xs" type="button">Soru Sor</button>
+        <div class="pull-right "><i style="color: #c0392b !important;"></i>
+            {{ link_to_route("question.ask", "Soru Sor", array(), array("class"=>"btn btn-danger btn-xs")) }}
         </div>
     </div>
 </div>

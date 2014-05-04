@@ -20,3 +20,7 @@ Route::post('user/update', array('as' => 'user.update', 'uses' => 'UserControlle
 Route::get('/login', array('as' => 'user.login', 'uses' => 'AuthController@getLogin'));
 Route::post('/login', array('as' => 'user.login.post', 'uses' => 'AuthController@postLogin'));
 Route::get('/logout', array('as' => 'user.logout', 'uses' => 'AuthController@getlogout'));
+
+// question
+Route::get('/ask', array('as' => 'question.ask', 'uses' => 'PostController@getAsk'));
+Route::post('/ask', array('as' => 'question.ask.post', 'uses' => 'PostController@postAsk'));

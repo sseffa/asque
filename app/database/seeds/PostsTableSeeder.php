@@ -14,8 +14,8 @@ class PostsTableSeeder extends Seeder {
         DB::table('posts')->insert(array(
             array(
                 'post_type_id'  => 1,
-                'title'         => 'lorem lipsum title',
-                'body'          => 'loreli lipsum body',
+                'title'         => 'lorem ipsum title',
+                'body'          => 'loreli ipsum body',
                 'view_count'    => 54,
                 'comment_count' => 1,
                 'favorite_count'=> 15,
@@ -25,8 +25,8 @@ class PostsTableSeeder extends Seeder {
             ),
             array(
                 'post_type_id'  => 1,
-                'title'         => 'lorem lipsum title 2',
-                'body'          => 'loreli lipsum body 2',
+                'title'         => 'lorem ipsum title 2',
+                'body'          => 'loreli ipsum body 2',
                 'view_count'    => 54,
                 'comment_count' => 1,
                 'favorite_count'=> 15,
@@ -36,8 +36,8 @@ class PostsTableSeeder extends Seeder {
             ),
             array(
                 'post_type_id'  => 2,
-                'title'         => 'lorem lipsum title 3',
-                'body'          => 'loreli lipsum body 3',
+                'title'         => 'lorem ipsum title 3',
+                'body'          => 'loreli ipsum body 3',
                 'view_count'    => 54,
                 'comment_count' => 1,
                 'favorite_count'=> 15,

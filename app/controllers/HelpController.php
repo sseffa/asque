@@ -1,6 +1,6 @@
 <?php
 
-class QuestionController extends \BaseController {
+class HelpController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -12,6 +12,7 @@ class QuestionController extends \BaseController {
 		//
 	}
 
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -22,6 +23,7 @@ class QuestionController extends \BaseController {
 		//
 	}
 
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -31,6 +33,7 @@ class QuestionController extends \BaseController {
 	{
 		//
 	}
+
 
 	/**
 	 * Display the specified resource.
@@ -43,6 +46,7 @@ class QuestionController extends \BaseController {
 		//
 	}
 
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -53,6 +57,7 @@ class QuestionController extends \BaseController {
 	{
 		//
 	}
+
 
 	/**
 	 * Update the specified resource in storage.
@@ -65,6 +70,7 @@ class QuestionController extends \BaseController {
 		//
 	}
 
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -75,5 +81,6 @@ class QuestionController extends \BaseController {
 	{
 		//
 	}
+
 
 }
