@@ -54,4 +54,22 @@ class Post extends Eloquent {
 
         return date('Y', strtotime($this->created_at));
     }
+
+    public function scopeArchive($query, $year, $month){
+
+        return $query->where(function($query) use ($year, $month){
+
+            $query->where(DB::raw('YEAR(created_at)'), '=', $year)
+                ->where(DB::raw('MONTH(created_at)'), '=', $month);
+        });
+    }
+
+    public function scopeSearch($query, $search){
+
+        return $query->where(function($query) use ($search){
+
+            $query->where('title', 'LIKE', "%$search%")
+                ->orWhere('body', 'LIKE', "%$search%");
+        });
+    }
 }

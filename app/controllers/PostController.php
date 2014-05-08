@@ -1,5 +1,7 @@
 <?php
 
+use \Carbon\Carbon;
+
 class PostController extends \BaseController {
 
     public function all() {
@@ -89,5 +91,16 @@ class PostController extends \BaseController {
         ))->find($id);
 
         return View::make('post.show', compact('post'));
+    }
+
+
+    public function archive($date) {
+
+        $year = Carbon::parse($date)->format('Y');
+        $month = Carbon::parse($date)->format('m');
+
+        $posts = Post::archive($year, $month)->paginate(10);
+
+        return View::make('post.archive', compact('posts'));
     }
 }

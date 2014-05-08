@@ -28,6 +28,7 @@ Route::get('/ask', array('as' => 'question.ask', 'uses' => 'PostController@getAs
 Route::post('/ask', array('as' => 'question.ask.post', 'uses' => 'PostController@postAsk'));
 Route::get('/posts', array('as' => 'question.all', 'uses' => 'PostController@all'));
 Route::get('/questions/{id}/{slug?}', array('as' => 'post.show', 'uses' => 'PostController@show'));
+Route::get('/post//{date}', array('as' => 'post.archive', 'uses' => 'PostController@archive'));
 
 // tag
 Route::get('/tags', array('as' => 'tag.all', 'uses' => 'TagController@all'));

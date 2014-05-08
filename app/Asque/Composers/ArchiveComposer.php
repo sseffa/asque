@@ -9,7 +9,7 @@ class ArchiveComposer {
 
         $postsByDate = Post::all()->groupBy(function ($date) {
 
-            return Carbon::parse($date->created_at)->format('Y-F');
+            return Carbon::parse($date->created_at)->format('F-Y');
         })->toArray();
 
         $view->with('archives', $postsByDate);

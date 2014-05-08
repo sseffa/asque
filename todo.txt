@@ -7,7 +7,7 @@ todo
 * cevaplama
 * arama
 * kullanıcı kayıt olduğunda aktivasyon maili gönderilecek
-* arşivden seçilen aya göre listeleme
+* arşivden seçilen aya göre listeleme                     ++++
 * soruya cevap ekleme
 * soruya yorum ekleme
 * üye profil sayfa linki

@@ -11,7 +11,7 @@
         <h4>Arşiv</h4>
         <ol class="list-unstyled">
             @foreach($archives as $date => $posts)
-            <li><a href="#">{{ $date }}</a></li>
+            <li><a href="{{ URL::route('post.archive', array('date'=>$date)) }}#">{{ $date }}</a></li>
             @endforeach
         </ol>
     </div>

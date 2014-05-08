@@ -11,13 +11,13 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#">Sorular</a>
+                    {{ link_to_route("dashboard", "Sorular") }}
                 </li>
                 <li>
-                    <a href="">Etiketler</a>
+                    {{ link_to_route("tag.all", "Etiketler") }}
                 </li>
                 <li>
-                    <a href="">Üyeler</a>
+                    {{ link_to_route("user.all", "Üyeler") }}
                 </li>
                 <li>
                     <a href="">Yardım</a>
