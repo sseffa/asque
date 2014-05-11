@@ -5,7 +5,7 @@ todo
 * +soru kaydedilmesi
 * +tagleme
 * +cevaplama
-* arama
+* +arama
 * kullanıcı kayıt olduğunda aktivasyon maili gönderilecek
 * +arşivden seçilen aya göre listeleme
 * +soruya cevap ekleme
@@ -14,6 +14,8 @@ todo
 * +auth kontrolü
 * +cevap onaylama
 * soru oylama
-* mail listesi oluşturma
+* +mail listesi oluşturma
 * +detaylı tag sayfası
-* kullanıcı tema ayarları yapılacak
+* +kullanıcı tema ayarları yapılacak
+* +kullanıcı şifremi unuttum kısmı yapılacak
+* kullanıcılara puanlama sistemi yapılacak

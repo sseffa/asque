@@ -1,5 +1,17 @@
 <div style="margin-bottom: 50px;" class="col-md-3">
     <div class="sidebar-module sidebar-module-inset">
+        <h4>Arama</h4>
+        <form action={{ url('/search') }} method="GET" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Arama..."  value="{{ $q or null }}" name="search" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <br>
+    <div class="sidebar-module sidebar-module-inset">
         <h4>En Yeni Sorular</h4>
         @foreach($posts as $post)
         <a href="{{ URL::route('post.show', array('id'=>$post->id, 'slug'=>$post->slug)) }}">{{ $post->title }}</a>

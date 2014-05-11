@@ -23,7 +23,13 @@
                     {{ link_to_route("rss", "RSS") }}
                 </li>
                 <li>
-                    <a href="">Yardım</a>
+                    {{ link_to_route("about", "Hakkında") }}
+                </li>
+                <li>
+                    {{ link_to_route("faq", "SSS") }}
+                </li>
+                <li>
+                    {{ link_to_route("help", "Yardım") }}
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

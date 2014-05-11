@@ -21,6 +21,15 @@ Route::get('/login', array('as' => 'user.login', 'uses' => 'AuthController@getLo
 Route::post('/login', array('as' => 'user.login.post', 'uses' => 'AuthController@postLogin'));
 Route::get('/logout', array('as' => 'user.logout', 'uses' => 'AuthController@getlogout'));
 
+// user password reminder
+Route::get('user/forgot-password', array('as' => 'user.forgot.password', 'uses' => 'AuthController@getForgotPassword'));
+Route::post('user/forgot-password', array('as' => 'user.forgot.password.post', 'uses' => 'AuthController@postForgotPassword'));
+
+Route::get('user/{id}/reset/{code}', array('as' => 'user.reset.password', 'uses' => 'AuthController@getResetPassword'))
+    ->where('id', '[0-9]+');
+Route::post('user/reset-password', array('as' => 'user.reset.password.post', 'uses' => 'AuthController@postResetPassword'));
+
+
 // question
 Route::get('/posts', array('as' => 'question.all', 'uses' => 'PostController@all'));
 Route::get('/questions/{id}/{slug?}', array('as' => 'post.show', 'uses' => 'PostController@show'));
@@ -30,12 +39,24 @@ Route::get('/post/{date}', array('as' => 'post.archive', 'uses' => 'PostControll
 Route::get('/tags', array('as' => 'tag.all', 'uses' => 'TagController@all'));
 Route::get('/tagged/{slug}', array('as' => 'tag.show', 'uses' => 'TagController@show'));
 
+// search
+Route::get('/search', ['as'=>'admin.search', 'uses'=>'SearchController@index']);
+
 // rss
 Route::get('/rss', array('as' => 'rss', 'uses' => 'RssController@index'));
 
 // maillist
 Route::get('/save-maillist', array('as' => 'maillist', 'uses' => 'MaillistController@getMaillist'));
 Route::post('/save-maillist', array('as' => 'maillist.post', 'uses' => 'MaillistController@postMaillist'));
+
+// about
+Route::get('/about', array('as' => 'about', 'uses' => 'AboutController@index'));
+
+// faq
+Route::get('/faq', array('as' => 'faq', 'uses' => 'FaqController@index'));
+
+// help
+Route::get('/help', array('as' => 'help', 'uses' => 'HelpController@index'));
 
 // route group
 Route::group(array('before' => 'auth.user'), function () {

@@ -5,7 +5,7 @@
         $('#notification').show().delay(4000).fadeOut(700);
     });
 </script>
-<div class="container">
+<div style="height: 500px;" class="container">
     {{ Notification::showAll() }}
     @include('layout/top')
     <div class="row">

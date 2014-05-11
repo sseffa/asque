@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ HTML::script('https://code.jquery.com/jquery-1.10.2.min.js') }}
     {{ HTML::script('assets/js/bootstrap.min.js') }}
-    {{ HTML::style('themes/Lumen/bootstrap.css') }}
+    {{ HTML::style('themes/'.$theme.'/bootstrap.css') }}
     {{ HTML::style('assets/css/style.css') }}
     <style>
         @section('styles')

@@ -83,8 +83,11 @@ class UserController extends \BaseController {
      */
     public function edit() {
 
+        $theme = new Theme();
+        $themes = $theme->getThemes();
+
         $user = Sentry::getUser();
-        return View::make('user.edit')->with('user', $user);
+        return View::make('user.edit')->with('user', $user)->with('themes', $themes);
     }
 
     /**
@@ -101,7 +104,8 @@ class UserController extends \BaseController {
             'birthday'     => Input::get('birthday'),
             'location'     => Input::get('location'),
             'web_site_url' => Input::get('web_site_url'),
-            'biography'    => Input::get('biography')
+            'biography'    => Input::get('biography'),
+            'theme'        => Input::get('theme')
         );
 
         /*
@@ -131,6 +135,7 @@ class UserController extends \BaseController {
         $user->web_site_url = $formData['web_site_url'];
         $user->location = $formData['location'];
         $user->biography = $formData['biography'];
+        $user->theme = $formData['theme'];
 
         $user->save();
 

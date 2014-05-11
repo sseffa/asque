@@ -25,13 +25,29 @@
 
                 <div style="margin-top:50px; margin-bottom:30px;" class="col-md-9 col-md-push-3">
                     <ul class="bottom-links bottom-menu">
-                        <li><a href="/">Asque</a></li>
-                        <li><a href="/">Sorular</a></li>
-                        <li><a href="/">Etiketler</a></li>
-                        <li><a href="/">Üyeler</a></li>
-                        <li><a href="/">Hakkında</a></li>
-                        <li><a href="/">RSS</a></li>
-                        <li><a href="/">Yardım</a></li>
+                        <li><a href="{{ route('dashboard') }}">Asque</a></li>
+
+                        <li class="dropdown">
+                            {{ link_to_route("dashboard", "Sorular") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("tag.all", "Etiketler") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("user.all", "Üyeler") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("rss", "RSS") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("about", "Hakkında") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("faq", "SSS") }}
+                        </li>
+                        <li>
+                            {{ link_to_route("help", "Yardım") }}
+                        </li>
                     </ul>
                 </div>
 

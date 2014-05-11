@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration {
 			$table->unique('email');
 			$table->index('activation_code');
 			$table->index('reset_password_code');
+            $table->string('theme', 25)->default('Default');
 		});
 	}
 

@@ -32,4 +32,12 @@ class MaillistController extends \BaseController {
 
         return Redirect::action('HomeController@index');
     }
+
+    public function sendMail() {
+
+        $formData=array();
+
+        $mailer = new Mailer;
+        $mailer->send('emails.newsletter', 'noreply@asque.com', 'Haber Bülteni', $formData);
+    }
 }

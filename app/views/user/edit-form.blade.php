@@ -105,6 +105,19 @@
     </div>
     <br>
 
+    <!-- Theme -->
+    <div class="control-group {{ $errors->has('theme') ? 'error' : '' }}">
+        <label class="control-label" for="title">Tema</label>
+
+        <div class="controls">
+            {{ Form::select('theme', $themes, $user->theme, array('class' => 'form-control', 'value'=>$user->theme)) }}
+            @if ($errors->first('theme'))
+            <span class="help-block">{{ $errors->first('theme') }}</span>
+            @endif
+        </div>
+    </div>
+    <br>
+
     <!-- Form actions -->
     {{ Form::submit('Kaydet', array('class' => 'btn btn-success')) }}
     {{ Form::close() }}
