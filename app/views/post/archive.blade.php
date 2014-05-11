@@ -62,7 +62,7 @@
         <p><b>{{ $post->view_count }}</b> View</p>
     </div>
     <div class="pull-right "><i style="color: #c0392b !important;"></i>
-        <p><span class="time" datetime="{{ $post->created_at }}"></span> | <a class="noa" target="_blank" href="#"> {{ $post->user->username }}</a></p>
+        <p><span class="time" datetime="{{ $post->created_at }}"></span> | <a class="noa" href="{{ URL::route('user.profile', array('id'=>$post->user->id)) }}"> {{ $post->user->username }}</a></p>
     </div>
 </blockquote>
 @endforeach

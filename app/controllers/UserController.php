@@ -149,11 +149,20 @@ class UserController extends \BaseController {
         //
     }
 
-    public function profile() {
+    public function profile($id = null) {
 
-        $userId = Sentry::getUser()->id;
-        $user = User::find($userId);
+        $auth = "logout";
 
-        return View::make('user.profile')->with('user', $user);
+        if ($id === null) {
+
+            if (!Sentry::check())
+                return Redirect::route('user.login');
+
+            $id = Sentry::getUser()->id;
+            $auth = "login";
+        }
+        $user = User::find($id);
+
+        return View::make('user.profile')->with('user', $user)->with('auth', $auth);
     }
 }

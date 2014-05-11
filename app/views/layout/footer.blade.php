@@ -2,7 +2,8 @@
     <div class="bottom-menu bottom-menu-inverse">
         <div class="container">
             <div class="row">
-                <form id="newsletterForm" action="/newsletter" method="post" novalidate="novalidate">
+                {{ Form::open(array('action' => 'MaillistController@postMaillist', 'id'=>'newsletterForm', 'novalidate'=>'novalidate')) }}
+
                     <h4 style="font-weight:100; margin-top: 30px;" class="col-md-6 col-md-push-4 bottom-mail-heading"><b><i>Mail Listesine Kaydolun!</i></b></h4>
 
                     <div class="clearfix"></div>
@@ -18,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                {{ Form::close() }}
             </div>
             <div class="row">
 

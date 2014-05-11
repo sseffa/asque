@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration {
 			$table->string('persist_code')->nullable();
 			$table->string('reset_password_code')->nullable();
 			$table->string('name')->nullable();
-
 			$table->string('location');
 			$table->string('reputation');
 			$table->string('username');
@@ -32,12 +31,7 @@ class CreateUsersTable extends Migration {
 			$table->text('biography');
 			$table->integer('view_count');
 			$table->datetime('birthday');
-
-
 			$table->timestamps();
-
-			// We'll need to ensure that MySQL uses the InnoDB engine to
-			// support the indexes, other engines aren't affected.
 			$table->engine = 'InnoDB';
 			$table->unique('email');
 			$table->index('activation_code');

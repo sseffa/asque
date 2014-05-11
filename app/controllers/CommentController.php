@@ -2,78 +2,32 @@
 
 class CommentController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
+    public function postComment() {
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+        $formData = array(
+            'comment'  => Input::get('comment')
+        );
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        $rules = array(
+            'comment'  => 'required'
+        );
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+        $validation = Validator::make($formData, $rules);
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+        if ($validation->fails()) {
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+            return Redirect::action('PostController@show', Input::get('post_id'))->withErrors($validation)->withInput();
+        }
+
+        $comment = new Comment();
+        $comment->comment = $formData['comment'];
+        $comment->user_id = Input::get('user_id');
+        $comment->post_id = Input::get('post_id');
+        $comment->save();
+        Notification::success('Yorumunuz başarıyla kaydedildi');
+
+        return Redirect::action('PostController@show', Input::get('post_id'));
+    }
 
 }

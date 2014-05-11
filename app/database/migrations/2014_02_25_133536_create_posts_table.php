@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration {
 			$table->integer('favorite_count');
 			$table->integer('user_id');
 			$table->integer('parent_id');
-			$table->datetime('closed_at');
+			$table->integer('accepted_answer_id');
 			$table->timestamps();
 		});
 	}

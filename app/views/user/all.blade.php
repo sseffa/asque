@@ -12,7 +12,7 @@
         <div class="col-md-12">
             @foreach($users as $user)
             <div style="height: 100px;" class="col-md-3">
-                <a class="btn btn-default btn-xs" href="#">{{ $user->username }}</a>
+                <a class="btn btn-default btn-xs" href="{{ URL::route('user.profile', array('id'=>$user->id)) }}">{{ $user->username }}</a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             @endforeach

@@ -1,19 +1,19 @@
 todo
 
-* tasarım oluşturulacak
-* kullanıcı işlemleri (sentry)
-* soru kaydedilmesi
-* tagleme
-* cevaplama
+* +tasarım oluşturulacak
+* +kullanıcı işlemleri (sentry)
+* +soru kaydedilmesi
+* +tagleme
+* +cevaplama
 * arama
 * kullanıcı kayıt olduğunda aktivasyon maili gönderilecek
-* arşivden seçilen aya göre listeleme                     ++++
-* soruya cevap ekleme
-* soruya yorum ekleme
-* üye profil sayfa linki
-* auth kontrolü
-* cevap onaylama
+* +arşivden seçilen aya göre listeleme
+* +soruya cevap ekleme
+* +soruya yorum ekleme
+* +üye profil sayfa linki
+* +auth kontrolü
+* +cevap onaylama
 * soru oylama
 * mail listesi oluşturma
-* detaylı tag sayfası
+* +detaylı tag sayfası
 * kullanıcı tema ayarları yapılacak

@@ -1,6 +1,5 @@
 <div style="margin-bottom: 50px;" class="col-md-3">
     <div class="sidebar-module sidebar-module-inset">
-
         <h4>En Yeni Sorular</h4>
         @foreach($posts as $post)
         <a href="{{ URL::route('post.show', array('id'=>$post->id, 'slug'=>$post->slug)) }}">{{ $post->title }}</a>

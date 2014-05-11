@@ -108,6 +108,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'Krucas\Notification\NotificationServiceProvider',
+        'Asque\Providers\FeederServiceProvider',
+        'Asque\Providers\SearchServiceProvider',
 
 	),
 
@@ -176,6 +178,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'Notification'    => 'Krucas\Notification\Facades\Notification',
+        'Search'          => 'Asque\Facades\Search',
+        'Feeder'          => 'Asque\Facades\Feeder',
 
 	),
 

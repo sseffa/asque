@@ -20,6 +20,9 @@
                     {{ link_to_route("user.all", "Üyeler") }}
                 </li>
                 <li>
+                    {{ link_to_route("rss", "RSS") }}
+                </li>
+                <li>
                     <a href="">Yardım</a>
                 </li>
             </ul>

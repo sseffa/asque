@@ -10,9 +10,12 @@
     @include('layout/top')
     <div class="row">
 
+        @if($auth == "login")
         <div class="pull-right "><i style="color: #c0392b !important;" class="fa fa-user"></i>
             {{ link_to_route('user.edit', 'Profili Düzenle') }}
         </div>
+        @endif
+
         <h2>{{ $user->name }}</h2>
         <hr>
         <div class="col-md-2">
