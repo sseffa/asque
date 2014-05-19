@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration {
 			$table->integer('view_count');
 			$table->integer('comment_count');
 			$table->integer('favorite_count');
+			$table->integer('vote_count');
 			$table->integer('user_id');
 			$table->integer('parent_id');
 			$table->integer('accepted_answer_id');

@@ -21,6 +21,11 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User {
         return $this->hasMany('Favorite', 'user_id');
     }
 
+    public function votes() {
+
+        return $this->hasMany('Vote', 'user_id');
+    }
+
     public function setAgeAttribute($value) {
 
         $this->attributes['age'] = $value;

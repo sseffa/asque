@@ -82,6 +82,38 @@
                 }
             })
         });
+
+        // plus
+        $(".plus").bind("click", function (e) {
+            var id = $(this).attr('id');
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{{ url('/question/" + id + "/toggle-plus-vote/') }}",
+                success: function (response) {
+                    window.location = document.URL;
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
+        });
+
+        // minus
+        $(".minus").bind("click", function (e) {
+            var id = $(this).attr('id');
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{{ url('/question/" + id + "/toggle-minus-vote/') }}",
+                success: function (response) {
+                    window.location = document.URL;
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
+        });
     });
 </script>
 <style>
@@ -97,8 +129,15 @@
         <div class="col-md-9">
             <div class="post-user">
                 <div class="pull-right">
+                    <p><b>{{ $totalVote }}</b> votes</p>
+                    <a href="#" id="{{ $post->id }}" class="minus">
+                        <img id="minus-vote-{{ $post->id }}" src="{{url('/')}}/assets/images/minus.png"/>
+                    </a>
+                    <a href="#" id="{{ $post->id }}" class="plus">
+                        <img id="plus-vote-{{ $post->id }}" src="{{url('/')}}/assets/images/plus.png"/>
+                    </a>
                     <a href="#" id="{{ $post->id }}" class="favorite">
-                        <img id="favorite-image-{{ $post->id }}" src="{{url('/')}}/assets/images/{{ (false) ? 'unfavorite.png' : 'favorite.png'  }}"/>
+                        <img id="favorite-image-{{ $post->id }}" src="{{url('/')}}/assets/images/{{ ($favorite == false) ? 'unfavorite.png' : 'favorite.png'  }}"/>
                     </a>
                 </div>
                 <h2>{{ $post->title }}</h2>
@@ -106,7 +145,7 @@
                 <p>{{ $post->body }}</p>
 
                 @foreach($post->tags as $tag)
-                <button class="btn btn-default btn-xs" type="button">{{ $tag->name }}</button>
+                <a class="btn btn-default btn-xs" href="{{ URL::route('tag.show', array('slug'=>$tag->slug)) }}">{{ $tag->name }}</a>
 
                 @endforeach
 

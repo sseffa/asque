@@ -34,6 +34,9 @@ Route::post('user/reset-password', array('as' => 'user.reset.password.post', 'us
 Route::get('/posts', array('as' => 'question.all', 'uses' => 'PostController@all'));
 Route::get('/questions/{id}/{slug?}', array('as' => 'post.show', 'uses' => 'PostController@show'));
 Route::get('/post/{date}', array('as' => 'post.archive', 'uses' => 'PostController@archive'));
+Route::get('/most-views', array('as' => 'most.views', 'uses' => 'PostController@mostViews'));
+Route::get('/most-votes', array('as' => 'most.votes', 'uses' => 'PostController@mostVotes'));
+Route::get('/most-favorites', array('as' => 'most.favorites', 'uses' => 'PostController@mostFavorites'));
 
 // tag
 Route::get('/tags', array('as' => 'tag.all', 'uses' => 'TagController@all'));
@@ -73,9 +76,20 @@ Route::group(array('before' => 'auth.user'), function () {
 
     Route::post('/comment', array('as' => 'question.comment.post', 'uses' => 'CommentController@postComment'));
 
+    // favorite
     Route::post('/question/{id}/toggle-favorite', array('as' => 'question.toggle-favorite', 'uses' => 'PostController@toggleFavorite'))
         ->where('id', '[0-9]+');
+
+    // accepted answer
     Route::post('/question/{id}/toggle-accepted-answer', array('as' => 'question.toggle-accepted-answer', 'uses' => 'PostController@toggleAcceptedAnswer'))
+        ->where('id', '[0-9]+');
+
+    // plus votes
+    Route::post('/question/{id}/toggle-plus-vote', array('as' => 'question.toggle-plus-vote', 'uses' => 'PostController@togglePlusVote'))
+        ->where('id', '[0-9]+');
+
+    // minus votes
+    Route::post('/question/{id}/toggle-minus-vote', array('as' => 'question.toggle-minus-vote', 'uses' => 'PostController@toggleMinusVote'))
         ->where('id', '[0-9]+');
 });
 

@@ -113,7 +113,6 @@ class UserController extends \BaseController {
             'username' => 'required|min:3|unique:users,username',
             'name'     => 'required|min:3',
             'email'    => 'required|email|unique:users,email'
-
         );
         */
 
@@ -167,6 +166,9 @@ class UserController extends \BaseController {
             $auth = "login";
         }
         $user = User::find($id);
+
+        // görüntülenme değerini 1 arttıralım
+        DB::table('users')->where('id', $id)->increment('view_count', 1);
 
         return View::make('user.profile')->with('user', $user)->with('auth', $auth);
     }

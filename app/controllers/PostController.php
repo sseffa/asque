@@ -4,16 +4,28 @@ use \Carbon\Carbon;
 
 class PostController extends \BaseController {
 
-    public function all() {
+    public function mostViews() {
 
-        dd(Post::all()->toArray());
+        $posts = Post::with('tags', 'user')->orderBy('view_count', 'desc')->paginate(10);
+        return View::make('post.most-views', compact('posts'));
+    }
+
+    public function mostVotes() {
+
+        $posts = Post::with('tags', 'user')->orderBy('vote_count', 'desc')->paginate(10);
+        return View::make('post.most-votes', compact('posts'));
+    }
+
+    public function mostFavorites() {
+
+        $posts = Post::with('tags', 'user')->orderBy('favorite_count', 'desc')->paginate(10);
+        return View::make('post.most-favorites', compact('posts'));
     }
 
     public function getAsk() {
 
         return View::make("post.ask");
     }
-
 
     public function postAsk() {
 
@@ -79,10 +91,40 @@ class PostController extends \BaseController {
         */
 
         $post = Post::with(array(
-            'tags', 'user', 'comments', 'children.comments.user'
+            'favorites.users', 'tags', 'user', 'comments', 'children.comments.user'
         ))->find($id);
 
-        return View::make('post.show', compact('post'));
+        $favorite = false;
+
+        if (Sentry::check()) {
+
+            // favorites
+            $result = DB::table('favorites')
+                ->where('user_id', Sentry::getUser()->id)
+                ->Where('post_id', $id)
+                ->get();
+
+            if (isset($result[0])) $favorite = true;
+            else $favorite = false;
+
+
+            // favorites
+            $result = DB::table('votes')
+                ->Where('post_id', $id)
+                ->get();
+        }
+
+        $totalVote = 0;
+        if (isset($result)) {
+            foreach ($result as $v) {
+                $totalVote = ($v->value) + $totalVote;
+            }
+        }
+
+        // görüntülenme değerini 1 arttıralım
+        DB::table('posts')->where('id', $id)->increment('view_count', 1);
+
+        return View::make('post.show', compact('post'))->with('favorite', $favorite)->with('totalVote', $totalVote);
     }
 
 
@@ -98,6 +140,9 @@ class PostController extends \BaseController {
 
     public function postAnswer() {
 
+        if (Input::get('body') == "<p><br></p>")
+            return Redirect::action('PostController@show', Input::get('parent_id'));
+
         $formData = array(
             'body' => Input::get('body')
         );
@@ -107,6 +152,7 @@ class PostController extends \BaseController {
         );
 
         $validation = Validator::make($formData, $rules);
+
 
         if ($validation->fails()) {
 
@@ -126,48 +172,127 @@ class PostController extends \BaseController {
 
     public function toggleFavorite($id) {
 
-        /*
-        $post = Post::with(array(
-            'favorites.users'
-        ))->find($id)->toArray();
-        */
+        $table = "favorites";
+        $result = DB::table($table)
+            ->where('user_id', Sentry::getUser()->id)
+            ->Where('post_id', $id)
+            ->get();
 
-        /*
-        $post = Post::with(array('favorites.users' => function ($query) {
+        if (isset($result[0])) {
 
-            $query->where('id', 2);
-        }))->find($id)->toArray();
-        */
+            $obj = $result[0];
+            DB::table($table)->where('id', $obj->id)->delete();
+        } else {
 
-        /*
-        $user = User::with(array(
-            'favorites', 'favorites.posts' => function ($query) {
+            DB::table($table)->insert(
+                array('post_id' => $id, 'user_id' => Sentry::getUser()->id)
+            );
+        }
 
-                $query->where('post_id', 1);
+        //--------------------------
+
+        // favorites
+        $result = DB::table('favorites')
+            ->Where('post_id', $id)
+            ->get();
+
+        $totalFavorite = count($result);
+
+        //
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(array('favorite_count' => $totalFavorite));
+    }
+
+    public function togglePlusVote($id) {
+
+        $table = "votes";
+        $result = DB::table($table)
+            ->where('user_id', Sentry::getUser()->id)
+            ->Where('post_id', $id)
+            ->get();
+
+        if (isset($result[0])) {
+
+            $obj = $result[0];
+            DB::table($table)
+                ->where('id', $obj->id)
+                ->update(array('value' => 1));
+        } else {
+
+            DB::table($table)->insert(
+                array('post_id' => $id, 'user_id' => Sentry::getUser()->id, 'value' => 1)
+            );
+        }
+
+        //--------------
+
+        // votes
+        $result = DB::table('votes')
+            ->Where('post_id', $id)
+            ->get();
+
+        $totalVote = 0;
+        if (isset($result)) {
+            foreach ($result as $v) {
+                $totalVote = ($v->value) + $totalVote;
             }
-        ))->where('id', 2)->get()->toArray();
-        */
+        }
 
+        //
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(array('vote_count' => $totalVote));
+    }
 
-        $posts = Post::whereHas('favorites', function ($q) {
+    public function toggleMinusVote($id) {
 
-            $q->where('user_id', 3);
-        })->where('id', 1)->get()->toArray();
+        $table = "votes";
+        $result = DB::table($table)
+            ->where('user_id', Sentry::getUser()->id)
+            ->Where('post_id', $id)
+            ->get();
 
-        print_r($posts);
-        die();
+        if (isset($result[0])) {
+
+            $obj = $result[0];
+            DB::table($table)
+                ->where('id', $obj->id)
+                ->update(array('value' => -1));
+        } else {
+
+            DB::table($table)->insert(
+                array('post_id' => $id, 'user_id' => Sentry::getUser()->id, 'value' => -1)
+            );
+        }
+
+        //--------------------------
+
+        // votes
+        $result = DB::table('votes')
+            ->Where('post_id', $id)
+            ->get();
+
+        $totalVote = 0;
+        if (isset($result)) {
+            foreach ($result as $v) {
+                $totalVote = ($v->value) + $totalVote;
+            }
+        }
+
+        //
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(array('vote_count' => $totalVote));
     }
 
     public function toggleAcceptedAnswer($id) {
 
         $acceptedAnswerId = Input::get('accepted_answer_id');
-
         $post = Post::find($id);
-
         $post->accepted_answer_id = $acceptedAnswerId;
 
         if ($post->save()) {
-
             return Response::json(array('result' => 'success'));
         }
 

@@ -20,6 +20,11 @@ class Post extends Eloquent {
         return $this->hasMany('Favorite', 'post_id');
     }
 
+    public function votes() {
+
+        return $this->hasMany('Vote', 'post_id');
+    }
+
     public function comments() {
 
         return $this->hasMany('Comment', 'post_id');

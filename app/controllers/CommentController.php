@@ -4,7 +4,6 @@ class CommentController extends \BaseController {
 
     public function postComment() {
 
-
         $formData = array(
             'comment'  => Input::get('comment')
         );

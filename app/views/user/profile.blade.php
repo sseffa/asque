@@ -21,7 +21,6 @@
         <div class="col-md-2">
             <h4>Gravatar</h4>
             <img src="{{ gratavarUrl($user->email) }}" alt="{{ $user->email }}"/>
-            {{ $user->reputation }}
         </div>
         <div class="col-md-4">
             <h4>Bilgiler</h4>
