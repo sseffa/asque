@@ -167,8 +167,8 @@
                 @if(Sentry::check())
                     @if(Sentry::getUser()->id == $post->user->id)
                         <div class="pull-right">
-                            <a class="edit-post" data-id="{{ $post->id }}" href="">Düzenle</a>&nbsp;|&nbsp;
-                             <a href="{{ URL::route('post.confirm.destroy', array($post->id)) }}">Sil</a>
+                            <a href="{{ URL::route('post.edit', array($post->id)) }}">Düzenle</a>&nbsp;|&nbsp;
+                            <a href="{{ URL::route('post.confirm.destroy', array($post->id)) }}">Sil</a>
                         </div>
                     @endif
                 @endif
@@ -205,19 +205,19 @@
                 <hr>
 
                 @if(Sentry::check())
-                    @if(Sentry::getUser()->id == $post->user->id)
-                    <div class="accepted accepted_{{ $childPost->id }}">
-                        @if(($post->accepted_answer_id == $childPost->id) && ($post->accepted_answer_id))
-                        <img src="{{ url('assets/images/tick-big.png') }}"/>
-                        @else
-                        @if(!($post->accepted_answer_id) && !($childPost->user->id == Sentry::getUser()->id))
-                        <a class="accepted_answer" data-parent-id="{{ $post->id }}" data-id="{{ $childPost->id }}" href="">
-                            <img src="{{ url('assets/images/tick-button-sm.png') }}"/>&nbsp;&nbsp;Çözüm olarak işaretle
-                        </a>
-                        @endif
-                        @endif
-                    </div>
+                @if(Sentry::getUser()->id == $post->user->id)
+                <div class="accepted accepted_{{ $childPost->id }}">
+                    @if(($post->accepted_answer_id == $childPost->id) && ($post->accepted_answer_id))
+                    <img src="{{ url('assets/images/tick-big.png') }}"/>
+                    @else
+                    @if(!($post->accepted_answer_id) && !($childPost->user->id == Sentry::getUser()->id))
+                    <a class="accepted_answer" data-parent-id="{{ $post->id }}" data-id="{{ $childPost->id }}" href="">
+                        <img src="{{ url('assets/images/tick-button-sm.png') }}"/>&nbsp;&nbsp;Çözüm olarak işaretle
+                    </a>
                     @endif
+                    @endif
+                </div>
+                @endif
                 @endif
 
 

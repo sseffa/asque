@@ -78,6 +78,12 @@ Route::group(array('before' => 'auth.user'), function () {
     Route::any('/post/{id}/destroy', array('as' => 'post.delete', 'uses' => 'PostController@destroy'))
         ->where('id', '\d+');
 
+    Route::get('/post/{id}/edit', array('as' => 'post.edit', 'uses' => 'PostController@edit'))
+        ->where('id', '\d+');
+
+    Route::any('/post/{id}/update', array('as' => 'post.update', 'uses' => 'PostController@update'))
+        ->where('id', '\d+');
+
 
     Route::post('/answer', array('as' => 'question.answer.post', 'uses' => 'PostController@postAnswer'));
 

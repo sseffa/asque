@@ -1,0 +1,18 @@
+Yapılacaklar
+
++* SSS içerik yazılacak
++* 5 kullanıcı eklenecek db:seed sırasında
++* app:install komutu kontrol edilecek
+* şifremi unuttum gibi kısımlarda mail sistemi kontrol edilecek
+* toplu mailler için view oluşturulacak
++* menülerde aktif pasif durumu yapılacak
++* kullanıcı profil görüntüleme sistemi kontrol edilecek
+* kodlara yorum yazılacak
++* soru ve cevapları düzenlemek için bir bölüm yapılabilir
++* soru sorarken aynı zamanda not içinde bir bölüm eklenebilir (radiobutton gibi) ---- yapıldı fakat soru ve not ayırt edilemiyor
++* etiketlerin sayısı arttırılacak
++* cevaplanmış, cevaplanmamış diye ayır soruları
+* kullanıcı profilinde soruları, cevapları, favorileri soruları listelenebilir
+* soru silme ya da yorum silme seçenekleri de olmalı
+* üye kendi kendini silebilmeli
++* silinen posta ait child verileri de sil

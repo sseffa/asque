@@ -63,7 +63,7 @@ class PostController extends \BaseController {
 
         $validation = Validator::make($formData, $rules);
 
-        if($validation->fails()) {
+        if ($validation->fails()) {
 
             return Redirect::action('PostController@getAsk')->withErrors($validation)->withInput();
         }
@@ -79,14 +79,14 @@ class PostController extends \BaseController {
 
         $postTags = explode(',', $formData['tag']);
 
-        foreach($postTags as $postTag) {
+        foreach ($postTags as $postTag) {
 
-            if(!$postTag)
+            if (!$postTag)
                 continue;
 
             $tag = Tag::where('name', '=', $postTag)->first();
 
-            if(!$tag)
+            if (!$tag)
                 $tag = new Tag;
 
             $tag->name = $postTag;
@@ -121,12 +121,12 @@ class PostController extends \BaseController {
 
         $favorite = false;
 
-        if(Sentry::check()) {
+        if (Sentry::check()) {
 
             // favorites
             $result = DB::table('favorites')->where('user_id', Sentry::getUser()->id)->Where('post_id', $id)->get();
 
-            if(isset($result[0]))
+            if (isset($result[0]))
                 $favorite = true;
             else $favorite = false;
 
@@ -135,8 +135,8 @@ class PostController extends \BaseController {
         }
 
         $totalVote = 0;
-        if(isset($result)) {
-            foreach($result as $v) {
+        if (isset($result)) {
+            foreach ($result as $v) {
                 $totalVote = ($v->value) + $totalVote;
             }
         }
@@ -159,7 +159,7 @@ class PostController extends \BaseController {
 
     public function postAnswer() {
 
-        if(Input::get('body') == "<p><br></p>")
+        if (Input::get('body') == "<p><br></p>")
             return Redirect::action('PostController@show', Input::get('parent_id'));
 
         $formData = array(
@@ -170,7 +170,7 @@ class PostController extends \BaseController {
 
         $validation = Validator::make($formData, $rules);
 
-        if($validation->fails()) {
+        if ($validation->fails()) {
 
             return Redirect::action('PostController@show', Input::get('parent_id'))->withErrors($validation)->withInput();
         }
@@ -191,12 +191,11 @@ class PostController extends \BaseController {
         $table = "favorites";
         $result = DB::table($table)->where('user_id', Sentry::getUser()->id)->Where('post_id', $id)->get();
 
-        if(isset($result[0])) {
+        if (isset($result[0])) {
 
             $obj = $result[0];
             DB::table($table)->where('id', $obj->id)->delete();
-        }
-        else {
+        } else {
 
             DB::table($table)->insert(array('post_id' => $id, 'user_id' => Sentry::getUser()->id));
         }
@@ -217,12 +216,11 @@ class PostController extends \BaseController {
         $table = "votes";
         $result = DB::table($table)->where('user_id', Sentry::getUser()->id)->Where('post_id', $id)->get();
 
-        if(isset($result[0])) {
+        if (isset($result[0])) {
 
             $obj = $result[0];
             DB::table($table)->where('id', $obj->id)->update(array('value' => 1));
-        }
-        else {
+        } else {
 
             DB::table($table)->insert(array('post_id' => $id, 'user_id' => Sentry::getUser()->id, 'value' => 1));
         }
@@ -233,8 +231,8 @@ class PostController extends \BaseController {
         $result = DB::table('votes')->Where('post_id', $id)->get();
 
         $totalVote = 0;
-        if(isset($result)) {
-            foreach($result as $v) {
+        if (isset($result)) {
+            foreach ($result as $v) {
                 $totalVote = ($v->value) + $totalVote;
             }
         }
@@ -248,12 +246,11 @@ class PostController extends \BaseController {
         $table = "votes";
         $result = DB::table($table)->where('user_id', Sentry::getUser()->id)->Where('post_id', $id)->get();
 
-        if(isset($result[0])) {
+        if (isset($result[0])) {
 
             $obj = $result[0];
             DB::table($table)->where('id', $obj->id)->update(array('value' => -1));
-        }
-        else {
+        } else {
 
             DB::table($table)->insert(array('post_id' => $id, 'user_id' => Sentry::getUser()->id, 'value' => -1));
         }
@@ -264,8 +261,8 @@ class PostController extends \BaseController {
         $result = DB::table('votes')->Where('post_id', $id)->get();
 
         $totalVote = 0;
-        if(isset($result)) {
-            foreach($result as $v) {
+        if (isset($result)) {
+            foreach ($result as $v) {
                 $totalVote = ($v->value) + $totalVote;
             }
         }
@@ -280,7 +277,7 @@ class PostController extends \BaseController {
         $post = Post::find($id);
         $post->accepted_answer_id = $acceptedAnswerId;
 
-        if($post->save()) {
+        if ($post->save()) {
             return Response::json(array('result' => 'success'));
         }
 
@@ -297,8 +294,11 @@ class PostController extends \BaseController {
         $post = Post::find($id);
         $post->destroy($id);
 
-        // cevapları ve yorumları da silelim
+        // cevapları, yorumları, oyları, beğenileri de silelim
         $post->children()->delete();
+        $post->comments()->delete();
+        $post->votes()->delete();
+        $post->favorites()->delete();
 
         Notification::success('Gönderi başarıyla silindi');
         return Redirect::action('HomeController@index');
@@ -308,5 +308,63 @@ class PostController extends \BaseController {
 
         $post = Post::find($id);
         return View::make('post.confirm-destroy', compact('post'));
+    }
+
+    /**
+     * Düzenleme sayfası
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id) {
+
+        $post = Post::find($id);
+        $tags = null;
+
+        foreach ($post->tags as $tag) {
+            $tags .= ',' . $tag->name;
+        }
+
+        $tags = substr($tags, 1);
+        return View::make('post.edit', compact('post', 'tags'));
+    }
+
+    public function update($id) {
+
+        $formData = array(
+            'title' => Input::get('title'),
+            'body'  => Input::get('body'),
+            'tag'   => Input::get('tag'));
+
+        $post = Post::find($id);
+        $post->title = $formData['title'];
+        $post->body = $formData['body'];
+        $post->post_type_id = Input::get('type');
+        $post->user_id = Sentry::getUser()->id;
+        $post->parent_id = 0;
+
+        $post->save();
+
+        $postTags = explode(',', $formData['tag']);
+
+        $post->tags()->detach();
+        foreach ($postTags as $postTag) {
+
+            if (!$postTag)
+                continue;
+
+            $tag = Tag::where('name', '=', $postTag)->first();
+
+            if (!$tag)
+                $tag = new Tag;
+
+            $tag->name = $postTag;
+            $tag->slug = Str::slug($postTag);
+
+            $post->tags()->save($tag);
+        }
+
+        Notification::success('Sorunuz başarıyla güncellendi');
+
+        return Redirect::action('PostController@show', $id);
     }
 }

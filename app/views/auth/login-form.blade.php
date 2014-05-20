@@ -41,5 +41,5 @@
     {{ Form::submit('Giriş', array('class' => 'btn btn-success')) }}
     {{ Form::close() }}
     <br>
-    {{ HTML::link('/user/forgot-password','Forgot Password', array('class' => 'btn btn-sm btn-default btn-block')) }}
+    {{ HTML::link('/user/forgot-password','Şifremi Unuttum', array('class' => 'btn btn-sm btn-default btn-block')) }}
 </div>

@@ -14,8 +14,6 @@
             @endforeach
             @endif
 
-
-
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>

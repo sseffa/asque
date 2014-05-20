@@ -4,10 +4,10 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Password Reset</h2>
-<p>To reset your password, <a href="{{ URL::to('user') }}/{{ $userId }}/reset/{{ urlencode($resetCode) }}">click here.</a>  If you did not request a password reset, you can safely ignore this email - nothing will be changed.</p>
-<p>Or point your browser to this address: <br /> {{ URL::to('admin') }}/{{ $userId }}/reset/{{ urlencode($resetCode) }}</p>
-<p>Thank you, <br />
-    Asque Team</p>
+<h2>Şifre Sıfırlama Servisi</h2>
+<p>Şifrenizi sıfırlamak için <a href="{{ URL::to('user') }}/{{ $userId }}/reset/{{ urlencode($resetCode) }}">tıklayınız</a></p>
+<p>Şifre sıfırlama adresi: <br /> {{ URL::to('admin') }}/{{ $userId }}/reset/{{ urlencode($resetCode) }}</p>
+<p>Teşekkürler, <br />
+    Asque Ekibi</p>
 </body>
 </html>
