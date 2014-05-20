@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test@test.com',
+                'email'               => 'example2@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test',
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test2@test.com',
+                'email'               => 'example3@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test2',
@@ -61,7 +61,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test3@test.com',
+                'email'               => 'example4@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test3',
@@ -77,7 +77,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test4@test.com',
+                'email'               => 'example5@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test4',
@@ -93,7 +93,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test5@test.com',
+                'email'               => 'example6@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test5',
@@ -109,7 +109,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test6@test.com',
+                'email'               => 'example7@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test6',
@@ -125,7 +125,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test7@test.com',
+                'email'               => 'example8@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test7',
@@ -141,7 +141,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test8@test.com',
+                'email'               => 'example9@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test8',
@@ -157,7 +157,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test9@test.com',
+                'email'               => 'example10@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test9',
@@ -173,7 +173,7 @@ class UsersTableSeeder extends Seeder {
                 'updated_at'          => date('Y-m-d H:i:s'),
             ),
             array(
-                'email'               => 'test10@test.com',
+                'email'               => 'example11@example.com',
                 'password'            => '$2y$10$BS5LjhZqhukFnDDJTRc8fuHf4hT9CmRzG8JG1XGOwjeW24FRm9xBK',
                 'activated'           => 1,
                 'name'                => 'Test10',
