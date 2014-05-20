@@ -2,6 +2,11 @@
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class SearchServiceProvider
+ * @package Asque\Providers
+ * @author Sefa Karagöz
+ */
 class SearchServiceProvider extends ServiceProvider {
 
     public function register() {

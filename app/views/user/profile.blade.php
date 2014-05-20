@@ -20,7 +20,7 @@
         <hr>
         <div class="col-md-2">
             <h4>Gravatar</h4>
-            <img src="{{ gratavarUrl($user->email) }}" alt="{{ $user->email }}"/>
+            <img src="{{ gravatarUrl($user->email) }}" alt="{{ $user->email }}"/>
         </div>
         <div class="col-md-4">
             <h4>Bilgiler</h4>
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td><strong>Profil Görüntüleme</strong></td>
-                    <td>{{ 153 }}</td>
+                    <td>{{ $user->view_count }}</td>
                 </tr>
                 <tr>
                     <td><strong>Kayıt Tarihi</strong></td>

@@ -1,23 +1,29 @@
 <?php
 
+/**
+ * Oturum bölümü
+ * Class AuthController
+ * @author Sefa Karagöz
+ */
 class AuthController extends \BaseController {
 
     /**
-     * Display the login page
+     * Login ekranı
      * @return View
      */
     public function getLogin() {
 
-        // oturum açılmışsa buraya girmeyecek unutma!
-        return View::make('auth.login');
+        if (Sentry::check()) Redirect::route('dashboard');
+        else return View::make('auth.login');
     }
 
     /**
-     * Login action
+     * Login işlemi
      * @return Redirect
      */
     public function postLogin() {
 
+        // validation
         $credentials = array(
             'email'    => Input::get('email'),
             'password' => Input::get('password')
@@ -27,12 +33,14 @@ class AuthController extends \BaseController {
 
         try {
 
+            // beni hatırla seçilmemişse, cookie tutma
             if (!empty($rememberMe)) {
                 $user = Sentry::authenticate($credentials, true);
             } else {
                 $user = Sentry::authenticate($credentials, false);
             }
 
+            // user varsa dashboarda yönlendir
             if ($user) {
                 return Redirect::route('dashboard');
             }
@@ -41,6 +49,10 @@ class AuthController extends \BaseController {
         }
     }
 
+    /**
+     * çıkış
+     * @return mixed
+     */
     public function getLogout() {
 
         Sentry::logout();
@@ -49,12 +61,20 @@ class AuthController extends \BaseController {
         return Redirect::route('user.login');
     }
 
+    /**
+     * Şifremi unuttum sayfası
+     * @return mixed
+     */
     public function getForgotPassword() {
 
         if (!Sentry::check()) return View::make('auth.forgot-password');
         else return Redirect::route('dashboard');
     }
 
+    /**
+     * Şifremi unuttum işlemi
+     * @return mixed
+     */
     public function postForgotPassword() {
 
         $credentials = array(
@@ -74,10 +94,7 @@ class AuthController extends \BaseController {
 
         try {
 
-            // Find the user using the user email address
             $this->user = Sentry::findUserByLogin($credentials['email']);
-
-            // Get the password reset code
             $resetCode = $this->user->getResetPasswordCode();
 
             $formData = array('userId' => $this->user->id, 'resetCode' => $resetCode);
@@ -103,12 +120,16 @@ class AuthController extends \BaseController {
         }
     }
 
+    /**
+     * Şifre sıfırlama
+     * @param $id
+     * @param $code
+     * @return mixed
+     */
     public function getResetPassword($id, $code) {
 
-        // Find the user using the user id
         $this->user = Sentry::findUserById($id);
 
-        // Check if the reset password code is valid
         if (!$this->user->checkResetPasswordCode($code)) {
             return Redirect::route('user.login');
         }
@@ -140,21 +161,17 @@ class AuthController extends \BaseController {
         }
 
         try {
-            // Find the user using the user id
+
             $this->user = Sentry::findUserById($formData['id']);
 
-            // Check if the reset password code is valid
             if ($this->user->checkResetPasswordCode($formData['code'])) {
-                // Attempt to reset the user password
+
                 if ($this->user->attemptResetPassword($formData['code'], $formData['password'])) {
-                    // Password reset passed
                     return Redirect::route('user.login');
                 } else {
-                    // Password reset failed
                     return Redirect::action('AuthController@getResetPassword')->withErrors(array('forgot-password' => 'Password reset failed'));
                 }
             } else {
-                // The provided password reset code is Invalid
                 return Redirect::action('AuthController@getResetPassword')->withErrors(array('forgot-password' => 'The provided password reset code is Invalid'));
             }
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {

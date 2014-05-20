@@ -10,25 +10,25 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
+                <li @if(isset($active) && $active=="question") class="active" @endif>
                     {{ link_to_route("dashboard", "Sorular") }}
                 </li>
-                <li>
+                <li @if(isset($active) && $active=="tag") class="active" @endif>
                     {{ link_to_route("tag.all", "Etiketler") }}
                 </li>
-                <li>
+                <li @if(isset($active) && $active=="user") class="active" @endif>
                     {{ link_to_route("user.all", "Üyeler") }}
                 </li>
                 <li>
                     {{ link_to_route("rss", "RSS") }}
                 </li>
-                <li>
+                <li @if(isset($active) && $active=="about") class="active" @endif>
                     {{ link_to_route("about", "Hakkında") }}
                 </li>
-                <li>
+                <li @if(isset($active) && $active=="faq") class="active" @endif>
                     {{ link_to_route("faq", "SSS") }}
                 </li>
-                <li>
+                <li @if(isset($active) && $active=="help") class="active" @endif>
                     {{ link_to_route("help", "Yardım") }}
                 </li>
             </ul>

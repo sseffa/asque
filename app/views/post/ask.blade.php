@@ -13,12 +13,6 @@
         $('.summernote').summernote({
             height: 200
         });
-
-        /*
-        $('form').on('submit', function (e) {
-            alert($('.summernote').code());
-        });
-        */
     });
 
     // notification
@@ -42,6 +36,20 @@
     <div class="row">
         <h2>Yeni Soru</h2>
         {{ Form::open() }}
+
+        <!-- Type -->
+        <div class="control-group {{ $errors->has('type') ? 'error' : '' }}">
+            <label class="control-label" for="title">Gönderi Tipi</label>
+
+            <div class="controls">
+                {{ Form::radio('type', 1, true) }}<span>  Soru</span><br>
+                {{ Form::radio('type', 3) }} <span>  Not</span>
+                @if ($errors->first('type'))
+                <span class="help-block">{{ $errors->first('type') }}</span>
+                @endif
+            </div>
+        </div>
+        <br>
 
         <!-- Title -->
         <div class="control-group {{ $errors->has('title') ? 'has-error' : '' }}">

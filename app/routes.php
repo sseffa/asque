@@ -2,11 +2,11 @@
 
 /*
 |--------------------------------------------------------------------------
-| Routes
+| Routes (Rotalamalar)
 |--------------------------------------------------------------------------
 */
 
-//
+// home
 Route::get('/', array('as' => 'dashboard', 'uses' => 'HomeController@index'));
 
 // user
@@ -37,6 +37,8 @@ Route::get('/post/{date}', array('as' => 'post.archive', 'uses' => 'PostControll
 Route::get('/most-views', array('as' => 'most.views', 'uses' => 'PostController@mostViews'));
 Route::get('/most-votes', array('as' => 'most.votes', 'uses' => 'PostController@mostVotes'));
 Route::get('/most-favorites', array('as' => 'most.favorites', 'uses' => 'PostController@mostFavorites'));
+Route::get('/answered-post', array('as' => 'answered.post', 'uses' => 'PostController@answeredPost'));
+Route::get('/unanswered-post', array('as' => 'unanswered.post', 'uses' => 'PostController@unansweredPost'));
 
 // tag
 Route::get('/tags', array('as' => 'tag.all', 'uses' => 'TagController@all'));
@@ -71,6 +73,11 @@ Route::group(array('before' => 'auth.user'), function () {
     // question
     Route::get('/ask', array('as' => 'question.ask', 'uses' => 'PostController@getAsk'));
     Route::post('/ask', array('as' => 'question.ask.post', 'uses' => 'PostController@postAsk'));
+    Route::get('/post/{id}/delete', array('as' => 'post.confirm.destroy', 'uses' => 'PostController@confirmDestroy'))
+        ->where('id', '\d+');
+    Route::any('/post/{id}/destroy', array('as' => 'post.delete', 'uses' => 'PostController@destroy'))
+        ->where('id', '\d+');
+
 
     Route::post('/answer', array('as' => 'question.answer.post', 'uses' => 'PostController@postAnswer'));
 

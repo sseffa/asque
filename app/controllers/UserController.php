@@ -1,6 +1,15 @@
 <?php
 
+/**
+ * Class UserController
+ * @author Sefa Karagöz
+ */
 class UserController extends \BaseController {
+
+    public function __construct() {
+
+        View::share('active', 'user');
+    }
 
     /**
      * Display a listing of the resource.
@@ -64,16 +73,6 @@ class UserController extends \BaseController {
         Notification::success('Kayıt işlemi başarıyla tamamlandı');
 
         return Redirect::action('UserController@create');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id) {
-        //
     }
 
     /**
@@ -141,16 +140,6 @@ class UserController extends \BaseController {
         Notification::success('Üye bilgileri başarıyla güncellendir');
 
         return Redirect::action('UserController@profile');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id) {
-        //
     }
 
     public function profile($id = null) {

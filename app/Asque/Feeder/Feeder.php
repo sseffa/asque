@@ -1,13 +1,29 @@
 <?php namespace Asque\Feeder;
 
+/**
+ * RSS formatı oluşturur
+ * Class Feeder
+ * @package Asque\Feeder
+ * @author Sefa Karagöz
+ */
 class Feeder {
 
+    /**
+     * rss ayarlar
+     * @var array
+     */
     protected $settings = array(
         'title'       => 'Asque',
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'link'        => 'link'
     );
 
+    /**
+     * Gönderilen veriyi xml formatına çevirir
+     * @param $entries
+     * @param null $settings
+     * @return mixed
+     */
     public function feed($entries, $settings = null) {
 
         if ($settings) $this->settings = $settings;

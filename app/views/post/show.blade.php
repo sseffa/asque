@@ -129,7 +129,7 @@
         <div class="col-md-9">
             <div class="post-user">
                 <div class="pull-right">
-                    <p><b>{{ $totalVote }}</b> votes</p>
+                    <p><b>{{ $totalVote }}</b> oy</p>
                     <a href="#" id="{{ $post->id }}" class="minus">
                         <img id="minus-vote-{{ $post->id }}" src="{{url('/')}}/assets/images/minus.png"/>
                     </a>
@@ -163,6 +163,15 @@
                     @endforeach
                 </div>
                 <a class="add-comment" data-id="{{ $post->id }}" href="">Yorum Yaz</a>
+
+                @if(Sentry::check())
+                    @if(Sentry::getUser()->id == $post->user->id)
+                        <div class="pull-right">
+                            <a class="edit-post" data-id="{{ $post->id }}" href="">Düzenle</a>&nbsp;|&nbsp;
+                             <a href="{{ URL::route('post.confirm.destroy', array($post->id)) }}">Sil</a>
+                        </div>
+                    @endif
+                @endif
 
                 <div style="display: none" class="comment-form comment-form-{{ $post->id }}" data-id="{{ $post->id }}">
                     <br>

@@ -37,34 +37,43 @@ class AppCommand extends Command {
      */
     public function fire() {
 
+        $this->comment('=====================================');
+
+        $this->comment('');
+        $this->info('  Veri tabanindaki tablolar siliniyor...');
+
         // drop tables
-        /*
+        Schema::dropIfExists('comments');
+        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('maillist');
+        Schema::dropIfExists('migrations');
+        Schema::dropIfExists('posts');
+        Schema::dropIfExists('posts_tags');
+        Schema::dropIfExists('post_types');
+        Schema::dropIfExists('tags');
+        Schema::dropIfExists('votes');
         Schema::dropIfExists('groups');
         Schema::dropIfExists('throttle');
         Schema::dropIfExists('users');
         Schema::dropIfExists('users_groups');
-        */
 
-        $this->comment('=====================================');
         $this->comment('');
         $this->info('  Kurulum baslatiliyor...');
 
-        // Generate the Application Encryption key
+        $this->comment('');
+        $this->info('  Guvenlik anahatari olusturuluyor...');
+
+        // Güvenlik için key oluşturalım
         $this->call('key:generate');
 
-        // Create the migrations table
-        $this->call('migrate:install');
-
-        // Run the Sentry Migrations
-        $this->call('migrate', array('--package' => 'cartalyst/sentry'));
-
-        // Run the Migrations
+        $this->comment('');
+        $this->info(' Tablolar yukleniyor...');
+        // Tabloları yükleyelim
         $this->call('migrate');
 
-        // Create the default user and default groups.
-        $this->sentryRunner();
-
-        // Seed the tables with dummy data
+        $this->comment('');
+        $this->info(' Tablolara veriler ekleniyor...');
+        // Tabloları dolduralım
         $this->call('db:seed');
 
         $this->comment('');

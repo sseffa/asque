@@ -28,7 +28,7 @@
             <div class="clearfix"></div>
             @foreach($posts as $post)
             <div style="color:#c0392b !important;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 post_date">
-                <a href="#" class="noa" target="_blank">
+                <a href="{{ URL::route('post.show', array('id'=>$post->id, 'slug'=>$post->slug)) }}" class="noa">
                     {{ $post->day }}
                     <div class="clearfix"></div>
                     {{ $post->month }}
