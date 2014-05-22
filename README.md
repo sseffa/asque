@@ -1,9 +1,9 @@
-asque
+Asque (Ask Question)
 =====
 
-Sistem Analizi ve Tasarımı dersi proje ödevi
+#Sistem Analizi ve Tasarımı Dersi Proje Ödevi
 
-stackoverflow sample :)
+Soru-Cevap Uygulaması (stackoverflow tarzında)
 
 ## Installation
 Please check the system requirements before installing Asque (Ask Question).
