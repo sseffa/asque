@@ -13,7 +13,7 @@ Please check the system requirements before installing Asque (Ask Question).
   * Composer: `composer create-project sseffa/asque --prefer-dist`
 2. From a command line open in the folder, run `composer install`.
 3. Enter your database details into `app/config/database.php`.
-4. Run `php artisan migrate` to setup and `php artisan db:seed` seed your database.
+4. Run `php artisan migrate` to setup and `php artisan db:seed` seed your database. (php artisan app:install)
 
 
 ## Screenshots
